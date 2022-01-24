@@ -76,15 +76,16 @@ local function get_base(cp)
         ThemerNormalFloat = { fg = cp.fg, bg = cp.bg.alt },
         ThemerSelected = { bg = cp.bg.selected },
         -- search terms
-        ThemerSearchResult = { bg = cp.search_result.bg, fg = cp.search_result.fg, bold = true }, -- see :h hlsearch and do :set hlserch to see it in action
+        ThemerSearchResult = { bg = cp.search_result.bg, fg = cp.search_result.fg, bold = true },
+        -- see :h hlsearch and do :set hlserch to see it in action
 
         -- git diffs
         DiffAdd = { bg = cp.diff.add },
         DiffChange = { bg = cp.diff.change },
         DiffText = { bg = cp.diff.text or cp.fg },
-        DiffDelete = { bg = cp.diff.remove },
+        DiffDelete = { bg = cp.diff.remove or cp.diff.delete },
         GitSignsAdd = { fg = cp.diff.add },
-        GitSignsDelete = { fg = cp.diff.delete },
+        GitSignsDelete = { fg = cp.diff.delete or cp.diff.remove },
         GitSignsChange = { fg = cp.diff.change },
 
         -- syntax highlighting
@@ -281,7 +282,7 @@ local function get_base(cp)
             DiagnosticWarn = { fg = cp.diagnostic.warn },
             DiagnosticInfo = { fg = cp.diagnostic.info },
             DiagnosticHint = { fg = cp.diagnostic.hint },
-            DiagnosticSignError = { link = "DiagnosticHint" },
+            DiagnosticSignError = { link = "DiagnosticError" },
             DiagnosticSignWarn = { link = "DiagnosticWarn" },
             DiagnosticSignInfo = { link = "DiagnosticInfo" },
             DiagnosticSignHint = { link = "DiagnosticHint" },
